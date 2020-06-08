@@ -1,0 +1,81 @@
+
+<html>
+<head>
+<title>Extract Text from subtitle, remove timestamps</title>
+<script language = "JavaScript">
+function TryClear(){
+Length = document.all.TextFields.Input.value.length;
+FirstSumbol = true;
+CancelExit =false;
+var strOut = "";
+
+for(i=0; i<Length; i++){
+ch = document.all.TextFields.Input.value.substring(i,i+1);
+if(FirstSumbol){
+if(ch >= '0' && ch <= '9' ){
+CancelExit =true;
+FirstSumbol = false;
+}
+else {
+CancelExit =false;
+strOut += '\n';
+FirstSumbol = false;
+}
+}
+if(ch == '\n'){
+FirstSumbol = true;
+}
+
+if((!CancelExit) && (!FirstSumbol)){
+strOut += ch;
+document.all.TextFields.Output.value = i;
+}
+else continue;
+}
+document.all.TextFields.Output.value = strOut;
+return;
+}
+
+</script>
+</head>
+<body>
+    <h1>Extract Text only from subtitle and remove timestamps</h1>
+    Example picture:<br/>
+    <img src="http://wow-only.ru/images/subtitles.png" /><br/>
+    Open your srt file with notepad. add to left text field and press "Do the job!"<br/>
+<form name="TextFields">
+<TEXTAREA type="text" cols="67" rows="10" name="Input" value="" ></TEXTAREA>
+<input type="button" value="Do the job!" onClick="TryClear();"></input>
+<TEXTAREA type="text" cols="67" rows="10" name="Output" value="" ></TEXTAREA>
+</form>
+(c) <a href="http://wow-only.ru/2012-06-29-12-36-00/85-2012-06-29-12-34-44/447-СѓРґР°Р»РµРЅРёРµ-РІСЂРµРјРµРЅРё-РёР·-СЃСѓР±С‚РёС‚СЂРѕРІ.html">wow-only.ru</a><br/><br/><a href="http://anatolt.ru">anatolt.ru</a>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function (d, w, c) {
+(w[c] = w[c] || []).push(function() {
+try {
+w.yaCounter20669278 = new Ya.Metrika({id: 20669278, enableAll: true});
+w.yaCounter10693645 = new Ya.Metrika({id: 10693645, enableAll: true});
+w.yaCounter15699160 = new Ya.Metrika({id: 15699160, enableAll: true});
+} catch(e) { }
+});
+
+var n = d.getElementsByTagName("script")[0],
+s = d.createElement("script"),
+f = function () { n.parentNode.insertBefore(s, n); };
+s.type = "text/javascript";
+s.async = true;
+s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+if (w.opera == "[object Opera]") {
+d.addEventListener("DOMContentLoaded", f, false);
+} else { f(); }
+})(document, window, "yandex_metrika_callbacks");
+</script>
+<script src="//mc.yandex.ru/metrika/watch.js" type="text/javascript" defer="defer"></script>
+<noscript><div><img src="//mc.yandex.ru/watch/20669278" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<noscript><div><img src="//mc.yandex.ru/watch/10693645" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<noscript><div><img src="//mc.yandex.ru/watch/15699160" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</body>
+</html>
